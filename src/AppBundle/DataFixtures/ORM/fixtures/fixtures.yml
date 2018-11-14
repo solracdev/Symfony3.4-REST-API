@@ -1,0 +1,32 @@
+## YAML Template.
+AppBundle\Entity\Movie:
+    ## Rango de inserts que hara con id aleatorio entre el primer valor y el ultimo
+    movie_{1..100}: 
+        ## streetName es un metodo que incluye el bundle para generar titutlos/nombres
+        title: <streetName()>
+        ## metodo del bundle para generar años entre las fechas
+        year: <numberBetween(1987, 2007)>
+        time: <numberBetween(30, 300)>
+        description: <sentence()>
+        
+AppBundle\Entity\Person:
+    person_{1..1000}:
+        firstName: <firstName()>
+        lastName: <lastName()>
+        dateOfBirth: <dateTimeBetween('1987-08-03', '2017-01-01')>
+        
+AppBundle\Entity\Role:
+    role_{1..100}:
+        person: '@person_<numberBetween(1, 1000)>'
+        movie: '@movie_<numberBetween(1, 100)>'
+        playedName: <firstName()> <lastName()>
+        
+#AppBundle\Entity\User:
+#    user1:
+#        username: carlos
+#        password: Security123
+#    user2:
+#        username: someone
+#        password: 1qazxsW
+        
+        

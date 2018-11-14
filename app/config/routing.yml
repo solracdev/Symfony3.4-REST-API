@@ -1,0 +1,93 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+    
+# MOVIES
+movies:
+    type: rest
+    resource: AppBundle\Controller\MoviesController
+    
+movies_post:
+    path: /movies
+    methods: [POST]
+    defaults:
+        _controller: AppBundle\Controller\MoviesController:postMoviesAction
+        _format: json
+        
+movies_patch:
+    path: /movies/{movie}
+    methods: [PATCH]
+    defaults:
+        _controller: AppBundle\Controller\MoviesController:patchMovieAction
+        _format: json
+
+movies_roles_post:
+    path: /movies/{movie}/roles
+    methods: [POST]
+    defaults:
+        _controller: AppBundle\Controller\MoviesController:postMovieRolesAction
+        _format: json
+
+# HUMANS
+humans:
+    type: rest
+    resource: AppBundle\Controller\HumansController
+    
+humans_post:
+    path: /humans
+    methods: [POST]
+    defaults:
+        _controller: AppBundle\Controller\HumansController:postHumansAction
+        _format: json  
+        
+# TOKEN
+tokens:
+    type: rest
+    resource: AppBundle\Controller\TokensController
+
+# USERS    
+users:
+    type: rest
+    resource: AppBundle\Controller\UsersController
+
+users_post:
+    path: /users
+    methods: [POST]
+    defaults:
+        _controller: AppBundle\Controller\UsersController:postUserAction
+        _format: json
+
+users_patch:
+    path: /users/{theUser}
+    methods: [PATCH]
+    defaults:
+        _controller: AppBundle\Controller\UsersController:patchUserAction
+        _format: json
+        
+# IMAGE        
+image:
+    type: rest
+    resource: AppBundle\Controller\ImageController
+    
+image_post:
+    path: /images
+    methods: [POST]
+    defaults:
+        _controller: AppBundle\Controller\ImageController:postImageAction
+        _format: json
+
+image_upload_put:
+    path: /images/{image}/uploads
+    methods: [PUT]
+    defaults:
+        _controller: AppBundle\Controller\ImageController:putImageUploadAction
+    
+        
+
+#get_token:
+#    path: /user/token
+#    methods: [POST]
+#    defaults: 
+#        _controller: AppBundle\Controller\UserController:getTokenAction
+        
+        
